@@ -18,6 +18,18 @@ const StudentCard = () => {
         <li>Checklist item</li>
       </ul>
       <p>Technical Interests</p>
+      <ul>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+        <li>Checklist item</li>
+      </ul>
     </div>
   );
 };

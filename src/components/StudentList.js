@@ -18,7 +18,7 @@ class StudentList extends Component {
       <div>
         {/* <div>You are now at {location.pathname}</div> */}
         <Switch>
-          <Route path={`/companies/:${studentId}`} component={StudentCard} />
+          <Route path={`/students/:${studentId}`} component={StudentCard} />
         </Switch>
         {this.props.location.pathname === "/students" ? (
           <div>
