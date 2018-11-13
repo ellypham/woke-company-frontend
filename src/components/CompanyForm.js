@@ -38,7 +38,8 @@ const CompanyForm = props => {
     submitting,
     displayDate,
     formattedDate,
-    isoDate
+    isoDate,
+    keywords
   } = props;
   return (
     <div className="ml-10 mr-10">
@@ -63,23 +64,29 @@ const CompanyForm = props => {
 
         <div className="w-1/2">
           <h3 className="text-center p-2">Company Checklist</h3>
-          {
-            listitem.companyRequirements.map((key, i) => (
-              <Field
-                className="p-1 "
-                name={key.dataLabel}
-                id={i}
-                type="checkbox"
-                component={CheckListItem}
-                label="Company Check List"
-                text={key.requirement}
-              />
-            ))
-          }
+          {listitem.companyRequirements.map((key, i) => (
+            <Field
+              className="p-1 "
+              name={key.dataLabel}
+              id={i}
+              type="checkbox"
+              component={CheckListItem}
+              label="Company Check List"
+              text={key.requirement}
+            />
+          ))}
         </div>
 
-        <Field name="techDropdown" component={TechStackDropdown} />
-        <Field name="industryDropdown" component={IndustryDropdown} />
+        <Field
+          name="techDropdown"
+          component={TechStackDropdown}
+          keywords={keywords}
+        />
+        <Field
+          name="industryDropdown"
+          component={IndustryDropdown}
+          keywords={keywords}
+        />
 
         <button
           className="border border-black p-2 mt-4"

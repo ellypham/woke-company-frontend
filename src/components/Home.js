@@ -7,28 +7,34 @@ import { checkApiServer } from "../api";
 // COMPONENTS
 import CompanyForm from "./CompanyForm";
 // REDUX ACTIONS
-import { handleChangeDatePicker, getChecklist } from "../actions/actionCreators";
+import {
+  handleChangeDatePicker,
+  getChecklist,
+  getKeywords
+} from "../actions/actionCreators";
 // REDUX CONNECT
 import { connect } from "react-redux";
 class Home extends Component {
   componentDidMount() {
     // checking that we're connected to the backend
     checkApiServer();
-		this.props.getChecklist();
+    this.props.getChecklist();
+    this.props.getKeywords();
   }
   submit = values => {
     // print the form values to the console
     console.log(values);
   };
   render() {
+    console.log("key key ", this.props.keywords);
     return (
       <div>
         <CompanyForm
-
           onSubmit={this.submit}
           displayDate={this.props.formDateFormatted}
           handleChangeDatePicker={this.props.handleChangeDatePicker}
-					getChecklist={this.props.getChecklist}
+          getChecklist={this.props.getChecklist}
+          keywords={this.props.keywords}
         />
       </div>
     );
@@ -39,6 +45,7 @@ const mapStateToProps = state => {
   return {
     // spread operator for our props object
     ...state,
+    keywords: state.keywords.keywords,
     formDateFormatted:
       state.form.companyInfo &&
       state.form.companyInfo.values &&
@@ -51,7 +58,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   // handleChangeDatePicker is an action
   handleChangeDatePicker,
-	getChecklist
+  getChecklist,
+  getKeywords
 };
 
 export default connect(
