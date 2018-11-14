@@ -26,7 +26,7 @@ class Home extends Component {
     console.log(values);
   };
   render() {
-    console.log("key key ", this.props.keywords);
+    console.log("keywords ", this.props.keywords);
     return (
       <div>
         <CompanyForm
@@ -41,11 +41,24 @@ class Home extends Component {
   }
 }
 
+const transformKeywords = keywords => {
+  return {
+    technical: keywords.technical.map(keyword => ({
+      value: keyword,
+      label: keyword
+    })),
+    industry: keywords.industry.map(keyword => ({
+      value: keyword,
+      label: keyword
+    }))
+  };
+};
+
 const mapStateToProps = state => {
   return {
     // spread operator for our props object
     ...state,
-    keywords: state.keywords.keywords,
+    keywords: transformKeywords(state.keywords.keywords),
     formDateFormatted:
       state.form.companyInfo &&
       state.form.companyInfo.values &&
