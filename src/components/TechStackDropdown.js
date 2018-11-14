@@ -11,6 +11,7 @@ export default ({ input, keywords }) => {
         Tech stack tags
       </label>
       <Select
+        defaultValue={[keywords.technical[0], keywords.technical[1]]}
         isMulti
         value={input ? input.value : null}
         onChange={input ? input.onChange : null}

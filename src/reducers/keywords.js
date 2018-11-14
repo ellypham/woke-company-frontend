@@ -1,5 +1,5 @@
 const initialState = {
-  keywords: {}
+  keywords: { technical: [], industry: [] }
 };
 
 const keywordsReducer = (state = initialState, action) => {
