@@ -63,14 +63,12 @@ const CompanyForm = props => {
           displayDate={displayDate}
         />
 
-        <div>
-          <h3 className="block text-grey-darker text-sm font-bold mb-2">
-            Company Checklist
-          </h3>
+        <div className="w-1/2">
+          <h3 className="text-center p-2">Company Checklist</h3>
           {checklist.map((key, i) => (
             <Field
               className="p-1 "
-              name="checklist"
+              name={key.dataLabel}
               id={i}
               key={i}
               type="checkbox"
